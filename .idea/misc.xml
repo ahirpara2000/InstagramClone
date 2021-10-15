@@ -5,6 +5,11 @@
       <map>
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/activity_login.xml" value="0.2759259259259259" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/activity_post.xml" value="0.44166666666666665" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_feed.xml" value="0.33" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_user.xml" value="0.33" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/menu/bottom_menu.xml" value="0.33" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.44166666666666665" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/xml/fileprovider.xml" value="0.1962962962962963" />
       </map>
     </option>
