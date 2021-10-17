@@ -24,8 +24,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.instagramclone.MainActivity;
 import com.example.instagramclone.Post;
+import com.example.instagramclone.ProgressButton;
 import com.example.instagramclone.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -44,7 +44,6 @@ public class ComposeFragment extends Fragment {
     private EditText etDescription;
     private Button btnCaptureImage;
     private ImageView ivPostImage;
-    private Button btnSubmit;
 
     private File photoFile;
     private String photoFileName = "photo.jpg";
@@ -66,21 +65,24 @@ public class ComposeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        ProgressButton progressButton = new ProgressButton(getContext(), view);
+
         etDescription = view.findViewById(R.id.etDescription);
         btnCaptureImage = view.findViewById(R.id.btnCaptureImage);
         ivPostImage = view.findViewById(R.id.ivPostImage);
-        btnSubmit = view.findViewById(R.id.btnSubmit);
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressButton.buttonReset();
                 launchCamera();
             }
         });
 
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btnSubmit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String description = etDescription.getText().toString();
                 if(description.isEmpty()) {
                     Toast.makeText(getContext(), "Description is empty", Toast.LENGTH_SHORT).show();
@@ -90,8 +92,9 @@ public class ComposeFragment extends Fragment {
                     Toast.makeText(getContext(), "There is no image!", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                progressButton.buttonActivated();
                 ParseUser currentUser = ParseUser.getCurrentUser();
-                savePost(description, currentUser, photoFile);
+                savePost(description, currentUser, photoFile, progressButton);
                 ivPostImage.setVisibility(View.GONE);
             }
         });
@@ -103,9 +106,6 @@ public class ComposeFragment extends Fragment {
         // Create a File reference for future access
         photoFile = getPhotoFileUri(photoFileName);
 
-        // wrap File object into a content provider
-        // required for API >= 24
-        // See https://guides.codepath.com/android/Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher
         Uri fileProvider = FileProvider.getUriForFile(getContext(), "com.codepath.fileprovider", photoFile);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider);
 
@@ -134,7 +134,7 @@ public class ComposeFragment extends Fragment {
         }
     }
 
-    private void savePost(String description, ParseUser currentUser, File photoFile) {
+    private void savePost(String description, ParseUser currentUser, File photoFile, ProgressButton progressButton) {
         Post post = new Post();
         post.setDescription(description);
         post.setImage(new ParseFile(photoFile));
@@ -149,6 +149,7 @@ public class ComposeFragment extends Fragment {
                 Log.i(TAG, "Post save was successful");
                 etDescription.setText("");
                 ivPostImage.setImageResource(0);
+                progressButton.buttonFinished();
             }
         });
     }
