@@ -3,13 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/activity_login.xml" value="0.2759259259259259" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.5421875" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/capture_button.xml" value="0.5421875" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_compose_icon.xml" value="0.5421875" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_home_icon.xml" value="0.5421875" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2324074074074074" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.33425925925925926" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/activity_login.xml" value="0.5" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_compose.xml" value="0.33" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_post.xml" value="0.33" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_profile.xml" value="0.521875" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/progess_button.xml" value="0.33" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/progress_login_button.xml" value="0.521875" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/progress_signup_button.xml" value="0.5117466802860061" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/signup_button.xml" value="0.521875" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.44166666666666665" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2324074074074074" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/xml/fileprovider.xml" value="0.1962962962962963" />
       </map>
     </option>
