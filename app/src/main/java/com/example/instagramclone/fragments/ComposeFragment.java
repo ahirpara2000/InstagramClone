@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
@@ -42,7 +43,7 @@ public class ComposeFragment extends Fragment {
     public static final String TAG = "ComposeFragment";
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
     private EditText etDescription;
-    private Button btnCaptureImage;
+    private ConstraintLayout btnCaptureImage;
     private ImageView ivPostImage;
 
     private File photoFile;
@@ -74,6 +75,7 @@ public class ComposeFragment extends Fragment {
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "Camera button clicked");
                 progressButton.buttonReset();
                 launchCamera();
             }
@@ -95,7 +97,6 @@ public class ComposeFragment extends Fragment {
                 progressButton.buttonActivated();
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(description, currentUser, photoFile, progressButton);
-                ivPostImage.setVisibility(View.GONE);
             }
         });
     }
@@ -128,6 +129,7 @@ public class ComposeFragment extends Fragment {
                 // Load the taken image into a preview
                 ivPostImage.setImageBitmap(takenImage);
                 ivPostImage.setVisibility(View.VISIBLE);
+                ivPostImage.setClipToOutline(true);
             } else { // Result was a failure
                 Toast.makeText(getContext(), "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
             }
@@ -149,6 +151,7 @@ public class ComposeFragment extends Fragment {
                 Log.i(TAG, "Post save was successful");
                 etDescription.setText("");
                 ivPostImage.setImageResource(0);
+                ivPostImage.setVisibility(View.GONE);
                 progressButton.buttonFinished();
             }
         });

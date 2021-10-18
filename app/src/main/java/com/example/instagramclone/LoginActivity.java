@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
@@ -20,8 +23,11 @@ public class LoginActivity extends AppCompatActivity {
     public static final String TAG = "LoginActivity";
     private EditText etUsername;
     private EditText etPassword;
-    private Button btnLogin;
-    private Button btnSignup;
+
+    private ProgressBar loginProgressBar;
+    private TextView loginTextView;
+    private ProgressBar signupProgressBar;
+    private TextView signupTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,26 +40,33 @@ public class LoginActivity extends AppCompatActivity {
 
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-        btnSignup = findViewById(R.id.btnSignup);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        loginProgressBar = findViewById(R.id.login_progressBar);
+        loginTextView = findViewById(R.id.login_textView);
+        signupProgressBar = findViewById(R.id.signup_progressBar);
+        signupTextView = findViewById(R.id.signup_textView);
+
+        findViewById(R.id.btnLogin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "onClick login button");
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 loginUser(username, password);
+                loginProgressBar.setVisibility(View.VISIBLE);
+                loginTextView.setVisibility(View.GONE);
             }
         });
 
-        btnSignup.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnSignup).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "onClicked signup button");
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 signupUser(username, password);
+                signupProgressBar.setVisibility(View.VISIBLE);
+                signupTextView.setVisibility(View.GONE);
             }
         });
     }
@@ -70,6 +83,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void done(ParseException e) {
                 if(e != null) {
+                    signupProgressBar.setVisibility(View.GONE);
+                    signupTextView.setVisibility(View.VISIBLE);
                     Log.e(TAG, "Issue with login", e);
                     Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
                     return;
@@ -87,6 +102,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if(e != null) {
+                    loginProgressBar.setVisibility(View.GONE);
+                    loginTextView.setVisibility(View.VISIBLE);
                     // Improve error handling here
                     Log.e(TAG, "Issue with login", e);
                     Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
