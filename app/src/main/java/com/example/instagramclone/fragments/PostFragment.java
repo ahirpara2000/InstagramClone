@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.instagramclone.EndlessRecyclerViewScrollListener;
 import com.example.instagramclone.Post;
 import com.example.instagramclone.Adapters.PostAdapter;
 import com.example.instagramclone.R;
@@ -31,6 +32,7 @@ public class PostFragment extends Fragment {
     private PostAdapter adapter;
     private List<Post> allPosts;
     private SwipeRefreshLayout swipeContainer;
+    private EndlessRecyclerViewScrollListener scrollListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,19 +53,29 @@ public class PostFragment extends Fragment {
         rvPosts = view.findViewById(R.id.rvPosts);
         swipeContainer = view.findViewById(R.id.swipeContainer);
 
+        allPosts = new ArrayList<>();
+        adapter = new PostAdapter(getContext(), allPosts);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+
+        rvPosts.setAdapter(adapter);
+
+        rvPosts.setLayoutManager(layoutManager);
+
+        scrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                getMorePosts();
+            }
+        };
+        rvPosts.addOnScrollListener(scrollListener);
+
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 queryPosts();
             }
         });
-
-        allPosts = new ArrayList<>();
-        adapter = new PostAdapter(getContext(), allPosts);
-
-        rvPosts.setAdapter(adapter);
-
-        rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 
         queryPosts();
     }
@@ -82,10 +94,35 @@ public class PostFragment extends Fragment {
                     Log.e(TAG, "Issue with getting posts", e);
                     return;
                 }
+//                for(Post post : posts) {
+//                    Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
+//                }
+                allPosts.clear();
+                allPosts.addAll(posts);
+                adapter.notifyDataSetChanged();
+                swipeContainer.setRefreshing(false);
+            }
+        });
+    }
+
+    private void getMorePosts() {
+        Log.i(TAG, "Inside query  post");
+        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
+        query.include(Post.KEY_USER);
+        query.setSkip(allPosts.size());
+        query.setLimit(20);
+        query.addDescendingOrder(Post.KEY_CREATED_KEY);
+
+        query.findInBackground(new FindCallback<Post>() {
+            @Override
+            public void done(List<Post> posts, ParseException e) {
+                if (e != null) {
+                    Log.e(TAG, "Issue with getting posts", e);
+                    return;
+                }
                 for(Post post : posts) {
                     Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
                 }
-                allPosts.clear();
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
                 swipeContainer.setRefreshing(false);
