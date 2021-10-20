@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/15519/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_compose.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/15519/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_post.xml" value="0.2673611111111111" />
+        <entry key="..\:/Users/15519/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/item_post.xml" value="0.25" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.5421875" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/capture_button.xml" value="0.5421875" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_compose_icon.xml" value="0.5421875" />
