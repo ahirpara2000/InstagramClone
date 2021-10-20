@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -13,17 +14,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.instagramclone.Post;
+import com.example.instagramclone.PostAdapter;
 import com.example.instagramclone.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PostFragment extends Fragment {
 
     private static final String TAG = "PostFragment";
     private RecyclerView rvPosts;
+    private PostAdapter adapter;
+    private List<Post> allPosts;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,6 +48,13 @@ public class PostFragment extends Fragment {
 
         rvPosts = view.findViewById(R.id.rvPosts);
 
+        allPosts = new ArrayList<>();
+        adapter = new PostAdapter(getContext(), allPosts);
+
+        rvPosts.setAdapter(adapter);
+
+        rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
+
         queryPosts();
     }
 
@@ -59,6 +71,8 @@ public class PostFragment extends Fragment {
                 for(Post post : posts) {
                     Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
                 }
+                allPosts.addAll(posts);
+                adapter.notifyDataSetChanged();
             }
         });
     }
