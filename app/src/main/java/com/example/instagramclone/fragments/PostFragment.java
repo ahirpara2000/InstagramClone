@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.instagramclone.Post;
-import com.example.instagramclone.PostAdapter;
+import com.example.instagramclone.Adapters.PostAdapter;
 import com.example.instagramclone.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
