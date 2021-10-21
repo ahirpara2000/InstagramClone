@@ -65,7 +65,7 @@ public class ProfileFragment extends Fragment {
         rvUserPosts = view.findViewById(R.id.rvUserPosts);
         ivUserProfile = view.findViewById(R.id.ivUserProfile);
         tvProfileFullname = view.findViewById(R.id.tvProfileFullname);
-        tvProfileUsername = view.findViewById(R.id.tvProfileFullname);
+        tvProfileUsername = view.findViewById(R.id.tvProfileUsername);
         tvBio = view.findViewById(R.id.tvBio);
 
         allPosts = new ArrayList<>();

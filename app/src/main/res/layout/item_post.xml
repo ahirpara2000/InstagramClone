@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/ivPostProfileImg"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
@@ -34,7 +34,7 @@
             android:layout_weight="1"
             android:padding="5dp"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             tools:text="Aman Hirpara" />
 
@@ -55,6 +55,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
+        android:paddingStart="10dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="5dp"
         android:text="TextView"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,9 +69,9 @@
         android:id="@+id/tvTime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="7dp"
+        android:paddingStart="12dp"
         android:text="TextView"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.413"
         app:layout_constraintStart_toStartOf="parent"

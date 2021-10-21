@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/15519/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/activity_login.xml" value="0.3" />
-        <entry key="..\:/Users/15519/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/item_post.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/15519/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_profile.xml" value="0.1764102564102564" />
+        <entry key="..\:/Users/15519/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/item_post.xml" value="0.3" />
+        <entry key="..\:/Users/15519/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/item_profile_post.xml" value="0.1764102564102564" />
         <entry key="..\:/Users/15519/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/progess_button.xml" value="0.1764102564102564" />
         <entry key="..\:/Users/15519/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/progress_login_button.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/15519/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/progress_signup_button.xml" value="0.17916666666666667" />

@@ -48,6 +48,7 @@
             android:layout_weight="2"
             android:gravity="center"
             android:textColor="@color/black"
+            android:textSize="18sp"
             android:textStyle="bold"
             tools:text="Aman Hirpara" />
 
