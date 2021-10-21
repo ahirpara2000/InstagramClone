@@ -1,17 +1,22 @@
 package com.example.instagramclone.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.instagramclone.Models.Post;
 import com.example.instagramclone.R;
+import com.example.instagramclone.fragments.ProfileDetailFragment;
 import com.parse.ParseFile;
 
 import java.util.List;
@@ -48,6 +53,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
     class ViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView ivProfilePosts;
+        final FragmentManager fragmentManager = ((AppCompatActivity) context).getSupportFragmentManager();
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -62,6 +68,15 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                         .load(image.getUrl())
                         .into(ivProfilePosts);
             }
+
+            ivProfilePosts.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("ProfileAdapter", "Clicked on image");
+                    Fragment fragment = new ProfileDetailFragment();
+                    fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).addToBackStack(null).commit();
+                }
+            });
         }
     }
 }

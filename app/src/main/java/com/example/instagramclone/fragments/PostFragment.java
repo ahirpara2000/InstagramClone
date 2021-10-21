@@ -29,8 +29,8 @@ public class PostFragment extends Fragment {
 
     private static final String TAG = "PostFragment";
     private RecyclerView rvPosts;
-    private PostAdapter adapter;
-    private List<Post> allPosts;
+    protected PostAdapter adapter;
+    protected List<Post> allPosts;
     private SwipeRefreshLayout swipeContainer;
     private EndlessRecyclerViewScrollListener scrollListener;
 
@@ -80,7 +80,7 @@ public class PostFragment extends Fragment {
         queryPosts();
     }
 
-    private void queryPosts() {
+    protected void queryPosts() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
         query.setLimit(20);
@@ -101,7 +101,7 @@ public class PostFragment extends Fragment {
         });
     }
 
-    private void getMorePosts() {
+    protected void getMorePosts() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
         query.setSkip(allPosts.size());
