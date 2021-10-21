@@ -1,15 +1,26 @@
 package com.example.instagramclone.fragments;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.bumptech.glide.Glide;
+import com.example.instagramclone.Adapters.ProfileAdapter;
+import com.example.instagramclone.LoginActivity;
 import com.example.instagramclone.Models.Post;
 import com.example.instagramclone.Models.User;
+import com.example.instagramclone.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserProfileFragment extends ProfileFragment{
@@ -20,6 +31,47 @@ public class UserProfileFragment extends ProfileFragment{
     public UserProfileFragment(ParseUser selectedUser) {
         super();
         this.selectedUser = selectedUser;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        btnLogout = view.findViewById(R.id.btnLogout);
+        rvUserPosts = view.findViewById(R.id.rvUserPosts);
+        ivUserProfile = view.findViewById(R.id.ivUserProfile);
+        tvProfileFullname = view.findViewById(R.id.tvProfileFullname);
+        tvProfileUsername = view.findViewById(R.id.tvProfileUsername);
+        tvBio = view.findViewById(R.id.tvBio);
+
+        allPosts = new ArrayList<>();
+        adapter = new ProfileAdapter(getContext(), allPosts);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3, GridLayoutManager.VERTICAL, false);
+
+        rvUserPosts.setAdapter(adapter);
+        rvUserPosts.setLayoutManager(gridLayoutManager);
+
+        queryPosts();
+        queryUser();
+
+        if(selectedUser.getUsername().equals(ParseUser.getCurrentUser().getUsername()))
+        {
+            btnLogout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ParseUser.logOut();
+                    ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+
+                    Intent i = new Intent(getContext(), LoginActivity.class);
+                    startActivity(i);
+                    getActivity().finish();
+                }
+            });
+        }
+        else
+        {
+            btnLogout.setVisibility(View.GONE);
+        }
+
     }
 
     @Override
@@ -37,7 +89,12 @@ public class UserProfileFragment extends ProfileFragment{
                 }
                 tvProfileUsername.setText(user.get(0).getKeyUsername());
                 tvProfileFullname.setText(user.get(0).getFullname());
-                tvBio.setText(user.get(0).getBio());
+
+                String bio = user.get(0).getBio();
+                if(bio == null)
+                    tvBio.setVisibility(View.GONE);
+                else
+                    tvBio.setText(user.get(0).getBio());
 
                 Glide.with(getContext())
                         .load(user.get(0).getProfileImage().getUrl())

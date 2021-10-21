@@ -34,7 +34,7 @@ import java.util.List;
 public class ProfileFragment extends Fragment {
 
     private static final String TAG = "ProfileFragment";
-    public Button btnLogout;
+    protected Button btnLogout;
 
     protected RecyclerView rvUserPosts;
     protected ProfileAdapter adapter;
@@ -126,7 +126,12 @@ public class ProfileFragment extends Fragment {
                 }
                 tvProfileUsername.setText(user.get(0).getKeyUsername());
                 tvProfileFullname.setText(user.get(0).getFullname());
-                tvBio.setText(user.get(0).getBio());
+
+                String bio = user.get(0).getBio();
+                if(bio == null)
+                    tvBio.setVisibility(View.GONE);
+                else
+                    tvBio.setText(user.get(0).getBio());
 
                 Glide.with(getContext())
                         .load(user.get(0).getProfileImage().getUrl())
