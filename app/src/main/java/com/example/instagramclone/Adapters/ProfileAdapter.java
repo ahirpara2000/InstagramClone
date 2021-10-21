@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.instagramclone.Post;
+import com.example.instagramclone.Models.Post;
 import com.example.instagramclone.R;
 import com.parse.ParseFile;
 

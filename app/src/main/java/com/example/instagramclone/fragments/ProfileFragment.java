@@ -14,10 +14,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.instagramclone.Adapters.ProfileAdapter;
 import com.example.instagramclone.LoginActivity;
-import com.example.instagramclone.Post;
+import com.example.instagramclone.Models.Post;
+import com.example.instagramclone.Models.User;
 import com.example.instagramclone.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -35,6 +39,10 @@ public class ProfileFragment extends Fragment {
     private RecyclerView rvUserPosts;
     private ProfileAdapter adapter;
     private List<Post> allPosts;
+    private ImageView ivUserProfile;
+    private TextView tvProfileFullname;
+    private TextView tvProfileUsername;
+    private TextView tvBio;
 
 
     @Override
@@ -55,6 +63,21 @@ public class ProfileFragment extends Fragment {
 
         btnLogout = view.findViewById(R.id.btnLogout);
         rvUserPosts = view.findViewById(R.id.rvUserPosts);
+        ivUserProfile = view.findViewById(R.id.ivUserProfile);
+        tvProfileFullname = view.findViewById(R.id.tvProfileFullname);
+        tvProfileUsername = view.findViewById(R.id.tvProfileFullname);
+        tvBio = view.findViewById(R.id.tvBio);
+
+        allPosts = new ArrayList<>();
+        adapter = new ProfileAdapter(getContext(), allPosts);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3, GridLayoutManager.VERTICAL, false);
+
+        rvUserPosts.setAdapter(adapter);
+        rvUserPosts.setLayoutManager(gridLayoutManager);
+
+        queryPosts();
+        queryUser();
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,17 +90,6 @@ public class ProfileFragment extends Fragment {
                 getActivity().finish();
             }
         });
-
-        allPosts = new ArrayList<>();
-        adapter = new ProfileAdapter(getContext(), allPosts);
-
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3, GridLayoutManager.VERTICAL, false);
-
-        rvUserPosts.setAdapter(adapter);
-
-        rvUserPosts.setLayoutManager(gridLayoutManager);
-
-        queryPosts();
     }
 
     private void queryPosts() {
@@ -94,11 +106,33 @@ public class ProfileFragment extends Fragment {
                     Log.e(TAG, "Issue with getting posts", e);
                     return;
                 }
-                for(Post post : posts) {
-                    Log.i(TAG, "Post: " + post.getImage().toString() + ", username: " + post.getUser().getUsername());
-                }
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void queryUser() {
+        ParseQuery<User> query = ParseQuery.getQuery(User.class);
+        query.whereEqualTo(User.KEY_USERNAME, ParseUser.getCurrentUser().getUsername());
+
+        query.findInBackground(new FindCallback<User>() {
+            @Override
+            public void done(List<User> user, ParseException e) {
+                Log.i(TAG, "Query user");
+                if (e != null) {
+                    Log.e(TAG, "Issue with getting posts", e);
+                    return;
+                }
+                tvProfileUsername.setText(user.get(0).getKeyUsername());
+                tvProfileFullname.setText(user.get(0).getFullname());
+                tvBio.setText(user.get(0).getBio());
+
+                Glide.with(getContext())
+                        .load(user.get(0).getProfileImage().getUrl())
+                        .centerCrop()
+                        .circleCrop()
+                        .into(ivUserProfile);
             }
         });
     }

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.instagramclone.Post;
+import com.example.instagramclone.Models.Post;
 import com.example.instagramclone.R;
 import com.parse.ParseFile;
 
@@ -51,12 +51,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         private TextView tvUsername;
         private ImageView ivImage;
         private TextView tvDescription;
+        private ImageView ivPostProfileImg;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvUsername = itemView.findViewById(R.id.tvUsername);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
+            ivPostProfileImg = itemView.findViewById(R.id.ivPostProfileImg);
         }
 
         public void bind(Post post) {
@@ -64,12 +66,22 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tvDescription.setText(post.getDescription());
             tvUsername.setText(post.getUser().getUsername());
 
+            ParseFile profileImage = post.getUser().getParseFile("profilePicture");
+
             ParseFile image = post.getImage();
 
             if(image != null) {
                 Glide.with(context)
                         .load(image.getUrl())
                         .into(ivImage);
+            }
+
+            if(profileImage != null) {
+                Glide.with(context)
+                        .load(profileImage.getUrl())
+                        .centerCrop()
+                        .circleCrop()
+                        .into(ivPostProfileImg);
             }
         }
     }

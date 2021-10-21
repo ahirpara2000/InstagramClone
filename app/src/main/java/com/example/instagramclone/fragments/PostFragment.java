@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.instagramclone.EndlessRecyclerViewScrollListener;
-import com.example.instagramclone.Post;
+import com.example.instagramclone.Models.Post;
 import com.example.instagramclone.Adapters.PostAdapter;
 import com.example.instagramclone.R;
 import com.parse.FindCallback;
@@ -81,7 +81,6 @@ public class PostFragment extends Fragment {
     }
 
     private void queryPosts() {
-        Log.i(TAG, "Inside query  post");
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
         query.setLimit(20);
@@ -94,9 +93,6 @@ public class PostFragment extends Fragment {
                     Log.e(TAG, "Issue with getting posts", e);
                     return;
                 }
-//                for(Post post : posts) {
-//                    Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
-//                }
                 allPosts.clear();
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
@@ -106,7 +102,6 @@ public class PostFragment extends Fragment {
     }
 
     private void getMorePosts() {
-        Log.i(TAG, "Inside query  post");
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
         query.setSkip(allPosts.size());
@@ -119,9 +114,6 @@ public class PostFragment extends Fragment {
                 if (e != null) {
                     Log.e(TAG, "Issue with getting posts", e);
                     return;
-                }
-                for(Post post : posts) {
-                    Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
                 }
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
