@@ -1,24 +1,27 @@
 package com.example.instagramclone.Adapters;
 
 import android.content.Context;
-import android.os.Build;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.instagramclone.Models.Post;
+import com.example.instagramclone.Models.User;
 import com.example.instagramclone.R;
+import com.example.instagramclone.fragments.ProfileFragment;
+import com.example.instagramclone.fragments.UserProfileFragment;
 import com.parse.ParseFile;
-
-import org.w3c.dom.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -61,6 +64,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         private TextView tvDescription;
         private ImageView ivPostProfileImg;
         private TextView tvTime;
+        private LinearLayout topBar;
+        final FragmentManager fragmentManager = ((AppCompatActivity) context).getSupportFragmentManager();
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,6 +74,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tvDescription = itemView.findViewById(R.id.tvDescription);
             ivPostProfileImg = itemView.findViewById(R.id.ivPostProfileImg);
             tvTime = itemView.findViewById(R.id.tvTime);
+            topBar = itemView.findViewById(R.id.topBar);
         }
 
         public void bind(Post post) {
@@ -94,6 +100,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                         .circleCrop()
                         .into(ivPostProfileImg);
             }
+
+            topBar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Fragment fragment = new UserProfileFragment(post.getUser());
+                    fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).addToBackStack(null).commit();
+                }
+            });
         }
     }
 

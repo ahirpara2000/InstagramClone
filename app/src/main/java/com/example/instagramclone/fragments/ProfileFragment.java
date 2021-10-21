@@ -36,13 +36,13 @@ public class ProfileFragment extends Fragment {
     private static final String TAG = "ProfileFragment";
     public Button btnLogout;
 
-    private RecyclerView rvUserPosts;
-    private ProfileAdapter adapter;
-    private List<Post> allPosts;
-    private ImageView ivUserProfile;
-    private TextView tvProfileFullname;
-    private TextView tvProfileUsername;
-    private TextView tvBio;
+    protected RecyclerView rvUserPosts;
+    protected ProfileAdapter adapter;
+    protected List<Post> allPosts;
+    protected ImageView ivUserProfile;
+    protected TextView tvProfileFullname;
+    protected TextView tvProfileUsername;
+    protected TextView tvBio;
 
 
     @Override
@@ -92,7 +92,7 @@ public class ProfileFragment extends Fragment {
         });
     }
 
-    private void queryPosts() {
+    protected void queryPosts() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
         query.whereEqualTo(Post.KEY_USER, ParseUser.getCurrentUser());
@@ -112,7 +112,7 @@ public class ProfileFragment extends Fragment {
         });
     }
 
-    private void queryUser() {
+    protected void queryUser() {
         ParseQuery<User> query = ParseQuery.getQuery(User.class);
         query.whereEqualTo(User.KEY_USERNAME, ParseUser.getCurrentUser().getUsername());
 

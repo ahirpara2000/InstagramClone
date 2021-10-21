@@ -18,6 +18,7 @@ import com.example.instagramclone.Models.Post;
 import com.example.instagramclone.R;
 import com.example.instagramclone.fragments.ProfileDetailFragment;
 import com.parse.ParseFile;
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -72,8 +73,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             ivProfilePosts.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("ProfileAdapter", "Clicked on image");
-                    Fragment fragment = new ProfileDetailFragment();
+                    Fragment fragment = new ProfileDetailFragment(post.getUser());
                     fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).addToBackStack(null).commit();
                 }
             });

@@ -12,6 +12,7 @@ import com.example.instagramclone.fragments.ComposeFragment;
 import com.example.instagramclone.fragments.PostFragment;
 import com.example.instagramclone.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.parse.ParseUser;
 
 public class MainActivity extends AppCompatActivity {
 
