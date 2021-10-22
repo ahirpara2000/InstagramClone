@@ -75,16 +75,17 @@
             android:backgroundTint="@color/blue"
             android:text="Login in" />
 
-        <include
+        <Button
             android:id="@+id/btnSignup"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             layout="@layout/progress_signup_button"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
-            android:backgroundTint="@color/blue"
-            android:text="Login in" />
+            android:text="Don't have an account? Sign up"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

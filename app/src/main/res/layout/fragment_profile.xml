@@ -71,6 +71,7 @@
         android:maxLines="5"
         android:padding="20dp"
         android:text="TextView"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivUserProfile" />

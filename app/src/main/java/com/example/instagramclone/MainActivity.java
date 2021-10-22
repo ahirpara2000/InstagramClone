@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         throw new IllegalStateException("Unexpected value: " + item.getItemId());
                 }
-                fragmentManager.beginTransaction().replace(R.id.flLoginContainer, fragment).commit();
+                fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
                 return true;
             }
         });

@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Fragment fragment = new LoginFragment();
-        fragmentManager.beginTransaction().replace(R.id.flLoginContainer, fragment).commit();
+        fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
 
     }
 }

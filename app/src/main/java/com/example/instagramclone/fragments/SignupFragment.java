@@ -85,6 +85,12 @@ public class SignupFragment extends Fragment {
 
         final FragmentManager fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
 
+        Glide.with(getContext())
+                .load(R.drawable.default_image)
+                .centerCrop()
+                .circleCrop()
+                .into(ivAddPicture);
+
         ivAddPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

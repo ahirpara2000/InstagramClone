@@ -72,7 +72,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                 @Override
                 public void onClick(View v) {
                     Fragment fragment = new ProfileDetailFragment(post.getUser());
-                    fragmentManager.beginTransaction().replace(R.id.flLoginContainer, fragment).addToBackStack(null).commit();
+                    fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).addToBackStack(null).commit();
                 }
             });
         }

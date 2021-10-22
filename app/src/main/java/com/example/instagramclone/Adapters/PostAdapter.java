@@ -103,7 +103,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     Fragment fragment = new UserProfileFragment(post.getUser());
-                    fragmentManager.beginTransaction().replace(R.id.flLoginContainer, fragment).addToBackStack(null).commit();
+                    fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).addToBackStack(null).commit();
                 }
             });
         }
