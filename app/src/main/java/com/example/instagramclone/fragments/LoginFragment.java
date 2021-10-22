@@ -18,7 +18,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.instagramclone.LoginActivity;
 import com.example.instagramclone.MainActivity;
 import com.example.instagramclone.R;
 import com.parse.LogInCallback;
@@ -47,7 +46,7 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_signin, container, false);
+        return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
     @Override

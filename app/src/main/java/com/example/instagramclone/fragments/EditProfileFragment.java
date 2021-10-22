@@ -71,7 +71,7 @@ public class EditProfileFragment extends Fragment {
 
         ivProfilePicture = view.findViewById(R.id.ivProfilePicture);
         etFullname = view.findViewById(R.id.etFullname);
-        etBio = view.findViewById(R.id.etBio);
+        etBio = view.findViewById(R.id.etAddBio);
         btnSubmit = view.findViewById(R.id.submitBtn);
 
         queryUser();
