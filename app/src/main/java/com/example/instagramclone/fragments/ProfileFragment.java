@@ -100,7 +100,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Fragment fragment = new EditProfileFragment();
-                fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).addToBackStack(null).commit();
+                fragmentManager.beginTransaction().replace(R.id.flLoginContainer, fragment).addToBackStack(null).commit();
             }
         });
     }

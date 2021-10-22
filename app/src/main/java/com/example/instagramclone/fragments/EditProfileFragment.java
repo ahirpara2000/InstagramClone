@@ -143,32 +143,42 @@ public class EditProfileFragment extends Fragment {
                 user.get(0).setFullName(full_name);
                 user.get(0).setBio(bio);
 
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                selectedImage.compress(Bitmap.CompressFormat.PNG, 3, stream);
-                byte[] image = stream.toByteArray();
-
-                final ParseFile file = new ParseFile("petImage.png", image);
-
-                file.saveInBackground(new SaveCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if(e == null) {
-                            user.get(0).setProfileImage(file);
-
-                            user.get(0).saveInBackground(new SaveCallback() {
-                                @Override
-                                public void done(ParseException e) {
-                                    if(e != null) {
-                                        Log.e(TAG, "Error while saving", e);
-                                        Toast.makeText(getContext(), "Error while saving!", Toast.LENGTH_SHORT).show();
-                                    }
-                                    Log.i(TAG, "Post save was successful");
-                                    fragmentManager.popBackStack();
-                                }
-                            });
+                if(selectedImage == null) {
+                    user.get(0).saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            fragmentManager.popBackStack();
                         }
-                    }
-                });
+                    });
+                }
+                else {
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    selectedImage.compress(Bitmap.CompressFormat.PNG, 3, stream);
+                    byte[] image = stream.toByteArray();
+
+                    final ParseFile file = new ParseFile("petImage.png", image);
+
+                    file.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                user.get(0).setProfileImage(file);
+
+                                user.get(0).saveInBackground(new SaveCallback() {
+                                    @Override
+                                    public void done(ParseException e) {
+                                        if (e != null) {
+                                            Log.e(TAG, "Error while saving", e);
+                                            Toast.makeText(getContext(), "Error while saving!", Toast.LENGTH_SHORT).show();
+                                        }
+                                        Log.i(TAG, "Post save was successful");
+                                        fragmentManager.popBackStack();
+                                    }
+                                });
+                            }
+                        }
+                    });
+                }
             }
         });
     }

@@ -17,9 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.instagramclone.Models.Post;
-import com.example.instagramclone.Models.User;
 import com.example.instagramclone.R;
-import com.example.instagramclone.fragments.ProfileFragment;
 import com.example.instagramclone.fragments.UserProfileFragment;
 import com.parse.ParseFile;
 
@@ -105,7 +103,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     Fragment fragment = new UserProfileFragment(post.getUser());
-                    fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).addToBackStack(null).commit();
+                    fragmentManager.beginTransaction().replace(R.id.flLoginContainer, fragment).addToBackStack(null).commit();
                 }
             });
         }

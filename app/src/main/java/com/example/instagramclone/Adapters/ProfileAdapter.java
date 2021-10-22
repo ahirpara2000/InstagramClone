@@ -1,7 +1,6 @@
 package com.example.instagramclone.Adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,6 @@ import com.example.instagramclone.Models.Post;
 import com.example.instagramclone.R;
 import com.example.instagramclone.fragments.ProfileDetailFragment;
 import com.parse.ParseFile;
-import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -74,7 +72,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                 @Override
                 public void onClick(View v) {
                     Fragment fragment = new ProfileDetailFragment(post.getUser());
-                    fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).addToBackStack(null).commit();
+                    fragmentManager.beginTransaction().replace(R.id.flLoginContainer, fragment).addToBackStack(null).commit();
                 }
             });
         }

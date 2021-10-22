@@ -10,12 +10,14 @@
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2324074074074074" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.33425925925925926" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/logout_button.xml" value="0.5421875" />
-        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/activity_login.xml" value="0.5" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_compose.xml" value="0.33" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_edit_profile.xml" value="0.521875" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_post.xml" value="0.33" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_profile.xml" value="0.5" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_signin.xml" value="0.2859375" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_signup.xml" value="0.67" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/item_post.xml" value="0.67" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/item_profile_post.xml" value="0.67" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/progess_button.xml" value="0.33" />
