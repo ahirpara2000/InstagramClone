@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +28,7 @@ public class UserProfileFragment extends ProfileFragment{
 
     private static final String TAG = "UserProfileFragment";
     private ParseUser selectedUser;
+    private LinearLayout btnContainer;
 
     public UserProfileFragment(ParseUser selectedUser) {
         super();
@@ -41,6 +43,7 @@ public class UserProfileFragment extends ProfileFragment{
         tvProfileFullname = view.findViewById(R.id.tvProfileFullname);
         tvProfileUsername = view.findViewById(R.id.tvProfileUsername);
         tvBio = view.findViewById(R.id.tvBio);
+        btnContainer = view.findViewById(R.id.btnContainer);
 
         allPosts = new ArrayList<>();
         adapter = new ProfileAdapter(getContext(), allPosts);
@@ -69,7 +72,7 @@ public class UserProfileFragment extends ProfileFragment{
         }
         else
         {
-            btnLogout.setVisibility(View.GONE);
+            btnContainer.setVisibility(View.GONE);
         }
 
     }

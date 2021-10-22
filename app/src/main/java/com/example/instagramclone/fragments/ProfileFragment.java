@@ -5,7 +5,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,6 +37,7 @@ public class ProfileFragment extends Fragment {
 
     private static final String TAG = "ProfileFragment";
     protected Button btnLogout;
+    protected Button btnEdit;
 
     protected RecyclerView rvUserPosts;
     protected ProfileAdapter adapter;
@@ -43,7 +46,6 @@ public class ProfileFragment extends Fragment {
     protected TextView tvProfileFullname;
     protected TextView tvProfileUsername;
     protected TextView tvBio;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,7 +63,10 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        final FragmentManager fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
+
         btnLogout = view.findViewById(R.id.btnLogout);
+        btnEdit = view.findViewById(R.id.btnEdit);
         rvUserPosts = view.findViewById(R.id.rvUserPosts);
         ivUserProfile = view.findViewById(R.id.ivUserProfile);
         tvProfileFullname = view.findViewById(R.id.tvProfileFullname);
@@ -88,6 +93,14 @@ public class ProfileFragment extends Fragment {
                 Intent i = new Intent(getContext(), LoginActivity.class);
                 startActivity(i);
                 getActivity().finish();
+            }
+        });
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new EditProfileFragment();
+                fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).addToBackStack(null).commit();
             }
         });
     }
