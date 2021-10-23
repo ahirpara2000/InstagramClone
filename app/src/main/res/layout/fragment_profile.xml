@@ -17,17 +17,6 @@
         tools:src="@tools:sample/avatars" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvUserPosts"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnContainer" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
@@ -118,5 +107,16 @@
             android:textSize="12sp"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUserPosts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnContainer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

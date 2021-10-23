@@ -8,6 +8,9 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.bumptech.glide.Glide;
@@ -38,6 +41,7 @@ public class UserProfileFragment extends ProfileFragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         btnLogout = view.findViewById(R.id.btnLogout);
+        btnEdit = view.findViewById(R.id.btnEdit);
         rvUserPosts = view.findViewById(R.id.rvUserPosts);
         ivUserProfile = view.findViewById(R.id.ivUserProfile);
         tvProfileFullname = view.findViewById(R.id.tvProfileFullname);
@@ -47,6 +51,8 @@ public class UserProfileFragment extends ProfileFragment{
 
         allPosts = new ArrayList<>();
         adapter = new ProfileAdapter(getContext(), allPosts);
+
+        final FragmentManager fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3, GridLayoutManager.VERTICAL, false);
 
@@ -67,6 +73,14 @@ public class UserProfileFragment extends ProfileFragment{
                     Intent i = new Intent(getContext(), LoginActivity.class);
                     startActivity(i);
                     getActivity().finish();
+                }
+            });
+
+            btnEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Fragment fragment = new EditProfileFragment();
+                    fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).addToBackStack(null).commit();
                 }
             });
         }

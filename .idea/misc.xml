@@ -5,12 +5,20 @@
       <map>
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.5421875" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/capture_button.xml" value="0.5421875" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/compose_selector.xml" value="0.13703703703703704" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/home_selector.xml" value="0.3003064351378958" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.5018518518518519" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.5018518518518519" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_compose_icon.xml" value="0.5421875" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_compose_icon_fill.xml" value="0.5018518518518519" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_home_icon.xml" value="0.5421875" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_home_icon_fill.xml" value="0.5018518518518519" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2324074074074074" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.33425925925925926" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/ic_person.xml" value="0.5018518518518519" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/logout_button.xml" value="0.5421875" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/underline.xml" value="0.5421875" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/drawable/user_selector.xml" value="0.5018518518518519" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_compose.xml" value="0.33" />
@@ -20,7 +28,7 @@
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_profile.xml" value="0.5" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_signin.xml" value="0.2859375" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/fragment_signup.xml" value="0.25" />
-        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/item_post.xml" value="0.67" />
+        <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/item_post.xml" value="0.5" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/item_profile_post.xml" value="0.67" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/progess_button.xml" value="0.33" />
         <entry key="..\:/Users/Aman Hirpara/AndroidStudioProjects/InstagramClone/app/src/main/res/layout/progress_login_button.xml" value="0.521875" />
