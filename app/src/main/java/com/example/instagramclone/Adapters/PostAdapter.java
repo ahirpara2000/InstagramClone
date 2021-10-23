@@ -1,7 +1,10 @@
 package com.example.instagramclone.Adapters;
 
 import android.content.Context;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.format.DateUtils;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,7 +80,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         public void bind(Post post) {
             // bind the data to view elements
-            tvDescription.setText(post.getDescription());
+
+            final SpannableStringBuilder sb = new SpannableStringBuilder(post.getUser().getUsername() + " " + post.getDescription());
+            final StyleSpan bss = new StyleSpan(R.font.roboto_bold);
+            sb.setSpan(bss, 0, post.getUser().getUsername().length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+
+            tvDescription.setText(sb);
             tvUsername.setText(post.getUser().getUsername());
             tvTime.setText(getTimestamp(post.getCreatedAt().toString()));
 
