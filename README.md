@@ -34,7 +34,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/ahirpara2000/InstagramClone/blob/master/insta_walkthrough_1.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' /> <img src='https://github.com/ahirpara2000/InstagramClone/blob/master/insta_walkthrough_2.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
 
 ## Notes
 
