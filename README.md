@@ -20,9 +20,9 @@ The following **optional** features are implemented:
 - [X] Show the username and creation time for each post.
 - [ ] User can tap a post to view post details, including timestamp and caption.
 - [X] User Profiles
-      - [X] Allow the logged in user to add a profile photo
-      - [X] Display the profile photo with each post
-      - [X] Tapping on a post's username or profile photo goes to that user's profile page and shows a grid view of the user's posts 
+- [X] Allow the logged in user to add a profile photo
+- [X] Display the profile photo with each post
+- [X] Tapping on a post's username or profile photo goes to that user's profile page and shows a grid view of the user's posts 
 - [ ] User can comment on a post and see all comments for each post in the post details screen.
 - [ ] User can like a post and see number of likes for each post in the post details screen.
 
@@ -34,7 +34,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/ahirpara2000/InstagramClone/blob/master/insta_walkthrough_1.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' /> <img src='https://github.com/ahirpara2000/InstagramClone/blob/master/insta_walkthrough_2.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
+<img src='https://github.com/ahirpara2000/InstagramClone/blob/master/insta_walkthrough_1.gif' title='Video Walkthrough' width='400' alt='Video Walkthrough' /> <img src='https://github.com/ahirpara2000/InstagramClone/blob/master/insta_walkthrough_2.gif' title='Video Walkthrough' width='400' alt='Video Walkthrough' />
 
 ## Notes
 
